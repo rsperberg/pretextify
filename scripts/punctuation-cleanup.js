@@ -41,10 +41,10 @@ var replacements = [
     { searchFor: /(\w|”)--(\w|“|\s)/gm, replaceWith: "$1—$2"}    //  em dash between characters (and between quotes)
 ];
 
-var inFile = process.argv[2];
-var outFile = process.argv[3]
+var inFile = process.argv[2] || '/dev/stdin';
+var outFile = process.argv[3]  ||  'build/cleaned-file';
 
-// using package.json script: cleanup to read README.md via cat
+// or use package.json script: cleanup to read rime.txt via cat
 var aFile = fs.readFile(inFile, 'utf8', function (err,data) {
     if (err) {
         return console.log(err);
@@ -58,8 +58,8 @@ var aFile = fs.readFile(inFile, 'utf8', function (err,data) {
         return someFile;
    }
     var result = cleanUp(data);
-    // now pipe the result to be stored in build/README.md
-//    console.log(result);
+    // now pipe the result to be stored in build/rime.txt
+//    console.log(result);  //  uncomment if using npm cleanup
 
     fs.writeFile(outFile, result, function (err) {
         if (err) throw err;
