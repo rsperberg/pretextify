@@ -36,7 +36,8 @@ var replacements = [
     { searchFor: /\b"/g, replaceWith: '”'},    //  close quote (eg, is preceded by a 'word boundary') needs to be set to follow punctuation as well
     { searchFor: /\b([\.|,|\?|!|;|:|-])"/g, replaceWith: '$1”'},    //  close quote after period (eg, is preceded by a 'word boundary')
     { searchFor: /(\w|,|\.|\?|!|;|:|-)' /g, replaceWith: "$1’ "},    //  close single quote and space after period etc
-    { searchFor: /'([T|t])/g, replaceWith: '’$1'},    //  'Twas, 'tis
+    { searchFor: /(\w|,|\.|\?|!|;|:|-)'$/gm, replaceWith: "$1’"},    //  close single quote after period etc at end of line
+    { searchFor: /'(Twas|Tis|twas|tis)/g, replaceWith: '’$1'},    //  'Twas, 'tis
     { searchFor: / - /g, replaceWith: " — "},    //  em dash between spaces
     { searchFor: /(\w)-- /g, replaceWith: "$1— "},    //  em dash after character followed by space
     { searchFor: /(\?)--\b/g, replaceWith: "$1—"},    //  em dash after question mark followed by word boundary
