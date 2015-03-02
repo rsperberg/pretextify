@@ -20,13 +20,14 @@ var replacements = [
     { searchFor: /'ll\b/g, replaceWith: "’ll"},    //  you'll
     { searchFor: /'m\b/g, replaceWith: "’m"},    //  I'm
     { searchFor: /'re\b/g, replaceWith: "’re"},    //  you're
-    { searchFor: /'s\b/g, replaceWith: "’s"},    //  it's
+    { searchFor: /'(s|S)\b/g, replaceWith: "’$1"},    //  it's, GRIMM'S
     { searchFor: /s'(\s)/g, replaceWith: "s’$1"},    //  plural possessive
     { searchFor: /'st\b/g, replaceWith: "’st"},    //  look'st (Rime of the Ancient Mariner)
     { searchFor: /'t\b/g, replaceWith: "’t"},   //  don't
     { searchFor: /'ve\b/g, replaceWith: "’ve"},   //  I've
     { searchFor: /(\s)'(\d\ds)/g, replaceWith: "$1’$2"},   //  ’90s
     { searchFor: /O'([A-Z])/g, replaceWith: "O’$1"},    //  O'Reilly
+    { searchFor: /o'clock/g, replaceWith: "o’clock"},    //  o'clock
     { searchFor: /(o|e)'e/g, replaceWith: "$1’e"},    //  o'er, ne'er (as in Rime of the Anient Mariner)
     { searchFor: /'(em)\b/g, replaceWith: "’em"},    //  'em  (Rime)
 //    { searchFor: /",/g, replaceWith: ',”'},    // comma outside quote mark
@@ -34,11 +35,15 @@ var replacements = [
     { searchFor: /"\b/g, replaceWith: '“'},    //  open quote (eg, precedes a 'word boundary')
     { searchFor: /\b"/g, replaceWith: '”'},    //  close quote (eg, is preceded by a 'word boundary') needs to be set to follow punctuation as well
     { searchFor: /\b([\.|,|\?|!|;|:|-])"/g, replaceWith: '$1”'},    //  close quote after period (eg, is preceded by a 'word boundary')
+    { searchFor: /(\w|,|\.|\?|!|;|:|-)' /g, replaceWith: "$1’ "},    //  close single quote and space after period etc
     { searchFor: /'([T|t])/g, replaceWith: '’$1'},    //  'Twas, 'tis
     { searchFor: / - /g, replaceWith: " — "},    //  em dash between spaces
     { searchFor: /(\w)-- /g, replaceWith: "$1— "},    //  em dash after character followed by space
-    { searchFor: /(\w|!|,|”)--$/gm, replaceWith: "$1—"},    //  em dash after character at end of line
-    { searchFor: /(\w|”)--(\w|“|\s)/gm, replaceWith: "$1—$2"}    //  em dash between characters (and between quotes)
+    { searchFor: /(\?)--\b/g, replaceWith: "$1—"},    //  em dash after question mark followed by word boundary
+    { searchFor: /(\w|!|,|\?|”)--$/gm, replaceWith: "$1—"},    //  em dash after character at end of line
+    { searchFor: /(\w|”)--(\w|“|\s)/gm, replaceWith: "$1—$2"},    //  em dash between characters (and between quotes)
+    { searchFor: / '(C)/g, replaceWith: " ’$1"},    //  'Change (Heart of Darkness)
+    { searchFor: /(d)'ye/g, replaceWith: "$1’ye"}   //  d'ye (Heart of Darkness)
 ];
 
 var inFile = process.argv[2] || '/dev/stdin';
