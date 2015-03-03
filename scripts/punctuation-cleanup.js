@@ -42,7 +42,7 @@ var replacements = [
     { searchFor: /(\w|,|\.|\?|!|;|:|-)'$/gm, replaceWith: "$1’"},    //  close single quote after period etc at end of line
     { searchFor: /(\w)'; /g, replaceWith: "$1’; "},    //  apostrophe after character followed by semi-colon and space
     { searchFor: /'(Twas|Tis|Twere|twas|tis|twere)/g, replaceWith: '’$1'},    //  'Twas, 'tis
-    { searchFor: / - /g, replaceWith: " — "},    //  em dash between spaces
+    { searchFor: / -(-)? /g, replaceWith: " — "},    //  em dash between spaces
     { searchFor: /(\w)-- /g, replaceWith: "$1— "},    //  em dash after character followed by space
     { searchFor: /(\?)--\b/g, replaceWith: "$1—"},    //  em dash after question mark followed by word boundary
     { searchFor: /(\w|!|,|\?|”)--$/gm, replaceWith: "$1—"},    //  em dash after character at end of line
