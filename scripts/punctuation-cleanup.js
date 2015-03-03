@@ -48,7 +48,8 @@ var replacements = [
     { searchFor: /(\w|!|,|\?|”)--$/gm, replaceWith: "$1—"},    //  em dash after character at end of line
     { searchFor: /(\w|”)--(\w|“|\s)/gm, replaceWith: "$1—$2"},    //  em dash between characters (and between quotes)
     { searchFor: / '(C)/g, replaceWith: " ’$1"},    //  'Change (Heart of Darkness)
-    { searchFor: /(d)'ye/g, replaceWith: "$1’ye"}   //  d'ye (Heart of Darkness)
+    { searchFor: /(:|,) '_(\w)/g, replaceWith: "$1 ‘_$2"},   //  italic inside single quote, markdown (Youth)
+    { searchFor: /(D|d)'ye/g, replaceWith: "$1’ye"}   //  d'ye (Heart of Darkness)
 ];
 
 var inFile = process.argv[2] || '/dev/stdin';
