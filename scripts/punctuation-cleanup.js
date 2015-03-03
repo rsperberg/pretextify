@@ -28,12 +28,15 @@ var replacements = [
     { searchFor: /(\s)'(\d\ds)/g, replaceWith: "$1’$2"},   //  ’90s
     { searchFor: /O'([A-Z])/g, replaceWith: "O’$1"},    //  O'Reilly
     { searchFor: /o'clock/g, replaceWith: "o’clock"},    //  o'clock
-    { searchFor: /(o|e)'e/g, replaceWith: "$1’e"},    //  o'er, ne'er (as in Rime of the Anient Mariner)
+    { searchFor: /(o|e)'e/g, replaceWith: "$1’e"},    //  o'er, ne'er (as in Rime of the Ancient Mariner)
     { searchFor: /'(em)\b/g, replaceWith: "’em"},    //  'em  (Rime)
 //    { searchFor: /",/g, replaceWith: ',”'},    // comma outside quote mark
 //    { searchFor: /"\./g, replaceWith: '.”'},    // period outside quote mark (transpose only)
     { searchFor: /"\b/g, replaceWith: '“'},    //  open quote (eg, precedes a 'word boundary')
     { searchFor: /\b"/g, replaceWith: '”'},    //  close quote (eg, is preceded by a 'word boundary') needs to be set to follow punctuation as well
+    { searchFor: / '([A-Z])/g, replaceWith: " ‘$1"},    //  'Word (inner quote) (general principle of open single quote)
+    { searchFor: / '([a-z])/g, replaceWith: " ‘$1"},    //  'word (inner quote with lower case, as found in Heart of Darkness)
+//  should these be /(\s)'(\w)/g  ?
     { searchFor: /\b([\.|,|\?|!|;|:|-])"/g, replaceWith: '$1”'},    //  close quote after period (eg, is preceded by a 'word boundary')
     { searchFor: /(\w|,|\.|\?|!|;|:|-)' /g, replaceWith: "$1’ "},    //  close single quote and space after period etc
     { searchFor: /(\w|,|\.|\?|!|;|:|-)'$/gm, replaceWith: "$1’"},    //  close single quote after period etc at end of line
