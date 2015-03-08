@@ -61,3 +61,25 @@ describe("possessives", function() {
         expect(tryThis).to.equal("and some WWII vintage blockhouses and officers’ quarters.")
     });
 });
+describe("common uses", function() {
+    it("should fix Irish names: O'Reilly", function() {
+        var testString = "shipping barn, on the Monsignor O'Brien Highway, that is owned";  // Hacker Crackdown
+        var tryThis = cleanup(testString);
+        expect(tryThis).to.equal("shipping barn, on the Monsignor O’Brien Highway, that is owned")
+    });
+    it("should fix decades: '70s", function() {
+        var testString = "of New York in the '70s, when he became involved with the local";  // Hacker Crackdown
+        var tryThis = cleanup(testString);
+        expect(tryThis).to.equal("of New York in the ’70s, when he became involved with the local")
+    });
+    it("should fix single year: '66", function() {
+        var testString = "programming computers.  IBM 1620s, in 1965 and '66.";  // Hacker Crackdown
+        var tryThis = cleanup(testString);
+        expect(tryThis).to.equal("programming computers.  IBM 1620s, in 1965 and ’66.")
+    });
+    it("should fix o'clock", function() {
+        var testString = "It was nine o'clock. Mr. Baker, speaking up to the man above him,";  // Conrad 'Narcissus'
+        var tryThis = cleanup(testString);
+        expect(tryThis).to.equal("It was nine o’clock. Mr. Baker, speaking up to the man above him,")
+    });
+});
