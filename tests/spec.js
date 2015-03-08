@@ -44,3 +44,20 @@ describe("common contractions", function() {
         expect(tryThis).to.equal("Carlton Fitzpatrick is the only person I’ve met in cyberspace circles")
     });
 });
+describe("possessives", function() {
+    it("should fix singular possessive: boy's", function() {
+        var testString = "So:  from the law's point of view, why risk missing anything?  Take the works.";  // Hacker Crackdown
+        var tryThis = cleanup(testString);
+        expect(tryThis).to.equal("So:  from the law’s point of view, why risk missing anything?  Take the works.")
+    });
+    it("should fix upper-case singular possessive: GRIMM'S", function() {
+        var testString = "  than the wealth of all the world.” GRIMM’S TALES.";  // Youth
+        var tryThis = cleanup(testString);
+        expect(tryThis).to.equal("  than the wealth of all the world.” GRIMM’S TALES.")
+    });
+    it("should fix plural possessive: boys' ", function() {
+        var testString = "and some WWII vintage blockhouses and officers' quarters.";  // Hacker Crackdown
+        var tryThis = cleanup(testString);
+        expect(tryThis).to.equal("and some WWII vintage blockhouses and officers’ quarters.")
+    });
+});
