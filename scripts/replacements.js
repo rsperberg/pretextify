@@ -23,19 +23,19 @@ var replacements = [
     { searchFor: /"\b/g, replaceWith: '“'},    //  open quote (eg, precedes a 'word boundary')
     { searchFor: /\b"/g, replaceWith: '”'},    //  close quote (eg, is preceded by a 'word boundary') needs to be set to follow punctuation as well
     { searchFor: /^(\s*)?"'\b/gm, replaceWith: '$1“‘'},    //  open double quote preceding open single quote at line beginning (eg, precedes a 'word boundary')
-    { searchFor: / '([A-Z])/g, replaceWith: " ‘$1"},    //  'Word (inner quote) (general principle of open single quote)
-    { searchFor: / '([a-z])/g, replaceWith: " ‘$1"},    //  'word (inner quote with lower case, as found in Heart of Darkness)
-//  should these be /(\s)'(\w)/g  ?
     { searchFor: /\b([\.|,|\?|!|;|:|-])"/g, replaceWith: '$1”'},    //  close quote after period (eg, is preceded by a 'word boundary')
     { searchFor: /(\w|,|\.|\?|!|;|:|-)' /g, replaceWith: "$1’ "},    //  close single quote and space after period etc
     { searchFor: /(\w|,|\.|\?|!|;|:|-)'$/gm, replaceWith: "$1’"},    //  close single quote after period etc at end of line
     { searchFor: /(\w)'; /g, replaceWith: "$1’; "},    //  apostrophe after character followed by semi-colon and space
-    { searchFor: /'(Twas|Tis|Twere|twas|tis|twere)/g, replaceWith: '’$1'},    //  'Twas, 'tis
+    { searchFor: /'(Twas|Tis|Twere|Tain|twas|tis|twere|tain)/g, replaceWith: '’$1'},    //  'Twas, 'tis
     { searchFor: / -(-)? /g, replaceWith: " — "},    //  em dash between spaces
     { searchFor: /(\w)-- /g, replaceWith: "$1— "},    //  em dash after character followed by space
     { searchFor: /(\?)--\b/g, replaceWith: "$1—"},    //  em dash after question mark followed by word boundary
     { searchFor: /(\w|!|,|\?|”)--$/gm, replaceWith: "$1—"},    //  em dash after character at end of line
     { searchFor: /(\w|”)--(\w|“|\s)/gm, replaceWith: "$1—$2"},    //  em dash between characters (and between quotes)
+    { searchFor: / '([A-Z])/g, replaceWith: " ‘$1"},    //  'Word (inner quote) (general principle of open single quote)
+    { searchFor: / '([a-z])/g, replaceWith: " ‘$1"},    //  'word (inner quote with lower case, as found in Heart of Darkness)
+//  should these be /(\s)'(\w)/g  ?
     { searchFor: / '(C)/g, replaceWith: " ’$1"},    //  'Change (Heart of Darkness)
     { searchFor: /(:|,) '_(\w)/g, replaceWith: "$1 ‘_$2"},   //  italic inside single quote, markdown (Youth)
     { searchFor: /(D|d)'ye/g, replaceWith: "$1’ye"}   //  d'ye (Heart of Darkness)
