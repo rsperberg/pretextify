@@ -83,3 +83,25 @@ describe("common uses", function() {
         expect(tryThis).to.equal("It was nine o’clock. Mr. Baker, speaking up to the man above him,")
     });
 });
+describe("less-common contractions", function() {
+    it("should fix o'er & ne'er", function() {
+        var testString = "     With far-heard whisper, o'er the sea.\n     It ate the food it ne'er had eat,";  // Rime of the Ancient Mariner
+        var tryThis = cleanup(testString);
+        expect(tryThis).to.equal("     With far-heard whisper, o’er the sea.\n     It ate the food it ne’er had eat,")
+    });
+    it("should fix 'twas and 'Twas", function() {
+        var testString = "     And now 'twas like all instruments,\n     'Twas sad as sad could be;";  // Rime of the Ancient Mariner
+        var tryThis = cleanup(testString);
+        expect(tryThis).to.equal("     And now ’twas like all instruments,\n     ’Twas sad as sad could be;")
+    });
+    it("should fix 'tis and 'Tis", function() {
+        var testString = "     'Tis sweeter far to me,\n 'tis";  // Rime of the Ancient Mariner
+        var tryThis = cleanup(testString);
+        expect(tryThis).to.equal("     ’Tis sweeter far to me,\n ’tis")
+    });
+    it("should fix 'tain't and 'Tain't", function() {
+        var testString = "'Tain't far\n 'tain't";  // Conrad 'Narcissus'
+        var tryThis = cleanup(testString);
+        expect(tryThis).to.equal("’Tain’t far\n ’tain’t")
+    });
+});
