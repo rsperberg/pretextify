@@ -104,4 +104,10 @@ describe("less-common contractions", function() {
         var tryThis = cleanup(testString);
         expect(tryThis).to.equal("’Tain’t far\n ’tain’t")
     });
+    it("should fix s'long", function() {
+        var testString = "yerself, s'long as ye're right";  // Conrad 'Narcissus'
+        var tryThis = cleanup(testString);
+        expect(tryThis).to.equal("yerself, s’long as ye’re right")
+    });
 });
+//
