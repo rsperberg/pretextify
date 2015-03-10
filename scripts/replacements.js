@@ -17,6 +17,7 @@ var replacements = [
     { searchFor: /O'([A-Z])/g, replaceWith: "O’$1"},    //  O'Reilly
     { searchFor: /o'clock/g, replaceWith: "o’clock"},    //  o'clock
     { searchFor: /(o|e)'e/g, replaceWith: "$1’e"},    //  o'er, ne'er (as in Rime of the Ancient Mariner)
+    { searchFor: /s'(long)/g, replaceWith: "s’$1"},    //  s'long (Conrad 'Narcissus')
     { searchFor: /'(em)\b/g, replaceWith: "’em"},    //  'em  (Rime)
 //    { searchFor: /",/g, replaceWith: ',”'},    // comma outside quote mark
 //    { searchFor: /"\./g, replaceWith: '.”'},    // period outside quote mark (transpose only)
@@ -40,5 +41,5 @@ var replacements = [
     { searchFor: /(:|,) '_(\w)/g, replaceWith: "$1 ‘_$2"},   //  italic inside single quote, markdown (Youth)
     { searchFor: /(D|d)'y(e|ou)/g, replaceWith: "$1’y$2"}   //  d'ye (Heart of Darkness), d'you (Conrad 'Narcissus')
 ];
-//
+//  some
 module.exports = replacements;
