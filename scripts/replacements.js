@@ -38,7 +38,7 @@ var replacements = [
 //  should these be /(\s)'(\w)/g  ?
     { searchFor: / '(C)/g, replaceWith: " ’$1"},    //  'Change (Heart of Darkness)
     { searchFor: /(:|,) '_(\w)/g, replaceWith: "$1 ‘_$2"},   //  italic inside single quote, markdown (Youth)
-    { searchFor: /(D|d)'ye/g, replaceWith: "$1’ye"}   //  d'ye (Heart of Darkness)
+    { searchFor: /(D|d)'y(e|ou)/g, replaceWith: "$1’y$2"}   //  d'ye (Heart of Darkness), d'you (Conrad 'Narcissus')
 ];
 //
 module.exports = replacements;
