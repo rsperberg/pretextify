@@ -34,6 +34,7 @@ var replacements = [
     { searchFor: /(\?)--\b/g, replaceWith: "$1—"},    //  em dash after question mark followed by word boundary
     { searchFor: /(\w|!|,|\?|”)--$/gm, replaceWith: "$1—"},    //  em dash after character at end of line
     { searchFor: /(\w|”)--(\w|“|\s)/gm, replaceWith: "$1—$2"},    //  em dash between characters (and between quotes)
+    { searchFor: /----(--)?/g, replaceWith: "——"},    //  2-em dash (Conrad 'Narcissus')
     { searchFor: / '([A-Z])/g, replaceWith: " ‘$1"},    //  'Word (inner quote) (general principle of open single quote)
     { searchFor: / '([a-z])/g, replaceWith: " ‘$1"},    //  'word (inner quote with lower case, as found in Heart of Darkness)
 //  should these be /(\s)'(\w)/g  ?
