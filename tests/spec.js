@@ -84,6 +84,11 @@ describe("common uses", function() {
     });
 });
 describe("less-common contractions", function() {
+    it("should fix sou'west", function() {
+        var testString = "the wind went round to the sou'west and began to pipe up. In two days it";  // Conrad Youth
+        var tryThis = cleanup(testString);
+        expect(tryThis).to.equal("the wind went round to the sou’west and began to pipe up. In two days it")
+    });
     it("should fix o'er & ne'er", function() {
         var testString = "     With far-heard whisper, o'er the sea.\n     It ate the food it ne'er had eat,";  // Rime of the Ancient Mariner
         var tryThis = cleanup(testString);
