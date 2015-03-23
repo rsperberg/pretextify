@@ -16,6 +16,7 @@ var replacements = [
     { searchFor: /(\s)'(\d\d)/g, replaceWith: "$1’$2"},   //  in 1965 and ’66 (Hacker Crackdown)
     { searchFor: /O'([A-Z])/g, replaceWith: "O’$1"},    //  O'Reilly
     { searchFor: /o'clock/g, replaceWith: "o’clock"},    //  o'clock
+    { searchFor: /(sou)'west/g, replaceWith: "$1’west"},    //  sou'west (Youth)
     { searchFor: /(o|e)'e/g, replaceWith: "$1’e"},    //  o'er, ne'er (as in Rime of the Ancient Mariner)
     { searchFor: /s'(long)/g, replaceWith: "s’$1"},    //  s'long (Conrad 'Narcissus')
     { searchFor: /'(em)\b/g, replaceWith: "’em"},    //  'em  (Rime)
